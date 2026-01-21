@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-export default function GeminiAPIReport() {
+
+function GeminiAPIReport() {
   const [activeTab, setActiveTab] = useState('overview');
 
   const sentimentData = [
