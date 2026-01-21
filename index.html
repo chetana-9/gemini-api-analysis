@@ -4,19 +4,352 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gemini API Ecosystem Analysis | Chet Y</title>
-  <meta name="description" content="Comprehensive analysis of the Gemini API developer ecosystem based on 600+ interactions">
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="https://unpkg.com/recharts@2.5.0/dist/Recharts.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
 </head>
-<body>
-  <div id="root"></div>
-  <script type="text/babel" src="./gemini-api-report.jsx"></script>
-  <script type="text/babel">
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<GeminiAPIReport />);
+<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 min-h-screen">
+  
+  <!-- Header -->
+  <div class="relative overflow-hidden border-b border-slate-800">
+    <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-blue-500/5"></div>
+    <div class="relative max-w-7xl mx-auto px-6 py-12">
+      <div class="inline-block px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-4">
+        <span class="text-emerald-400 text-xs font-medium tracking-wide uppercase">Technical Analysis</span>
+      </div>
+      <h1 class="text-5xl font-bold text-slate-100 mb-3 tracking-tight">Gemini API Ecosystem</h1>
+      <p class="text-xl text-slate-400 max-w-3xl leading-relaxed">
+        A comprehensive analysis of 600+ developer interactions, filtered to Gemini-specific data points
+      </p>
+      <div class="flex gap-4 mt-6 text-sm text-slate-500">
+        <span class="flex items-center gap-2">
+          <div class="w-2 h-2 bg-emerald-500 rounded-full"></div>
+          Analysis Period: Dec 2025 - Jan 2026
+        </span>
+        <span class="flex items-center gap-2">
+          <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+          Sample Size: ~90 Gemini-specific entries
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="max-w-7xl mx-auto px-6 py-6">
+    <div class="flex gap-2 border-b border-slate-800">
+      <button onclick="showTab('overview')" id="tab-overview" class="px-6 py-3 font-medium transition-all duration-200 border-b-2 border-emerald-500 text-emerald-400">Overview</button>
+      <button onclick="showTab('sentiment')" id="tab-sentiment" class="px-6 py-3 font-medium transition-all duration-200 border-b-2 border-transparent text-slate-400 hover:text-slate-300">Sentiment Analysis</button>
+      <button onclick="showTab('issues')" id="tab-issues" class="px-6 py-3 font-medium transition-all duration-200 border-b-2 border-transparent text-slate-400 hover:text-slate-300">Issue Tracker</button>
+      <button onclick="showTab('insights')" id="tab-insights" class="px-6 py-3 font-medium transition-all duration-200 border-b-2 border-transparent text-slate-400 hover:text-slate-300">Strategic Insights</button>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="max-w-7xl mx-auto px-6 pb-16">
+    
+    <!-- Overview Tab -->
+    <div id="content-overview" class="space-y-8">
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-6">
+          <div class="text-3xl font-bold text-emerald-400 mb-2">15%</div>
+          <div class="text-slate-300 font-medium mb-1">Gemini-Specific Data</div>
+          <div class="text-sm text-slate-500">Filtered from 600 total entries</div>
+        </div>
+        <div class="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-6">
+          <div class="text-3xl font-bold text-blue-400 mb-2">42%</div>
+          <div class="text-slate-300 font-medium mb-1">Neutral Sentiment</div>
+          <div class="text-sm text-slate-500">Documentation & how-to queries</div>
+        </div>
+        <div class="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-6">
+          <div class="text-3xl font-bold text-red-400 mb-2">34%</div>
+          <div class="text-slate-300 font-medium mb-1">Negative Feedback</div>
+          <div class="text-sm text-slate-500">API key & latency issues</div>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-8">
+        <h2 class="text-2xl font-bold text-slate-100 mb-6">Executive Summary</h2>
+        <div class="space-y-4 text-slate-300 leading-relaxed">
+          <p>The Gemini API demonstrates strong technical capabilities in multimodal processing, particularly with the Nano Banana Pro model and Google Maps integration. However, the developer experience is significantly hampered by onboarding friction.</p>
+          <div class="grid md:grid-cols-2 gap-6 mt-6">
+            <div class="border-l-2 border-emerald-500 pl-4">
+              <h3 class="font-semibold text-emerald-400 mb-2">Strengths</h3>
+              <ul class="space-y-2 text-sm text-slate-400">
+                <li>• Superior text rendering in images</li>
+                <li>• 50% cost savings with Batch API</li>
+                <li>• Google Maps grounding capabilities</li>
+                <li>• Rapid prototyping with Vibe Code</li>
+              </ul>
+            </div>
+            <div class="border-l-2 border-red-500 pl-4">
+              <h3 class="font-semibold text-red-400 mb-2">Critical Issues</h3>
+              <ul class="space-y-2 text-sm text-slate-400">
+                <li>• Complex authentication flow</li>
+                <li>• Silent rate limiting on new accounts</li>
+                <li>• 7.36s CLI cold start latency</li>
+                <li>• Overzealous recitation filtering</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sentiment Tab -->
+    <div id="content-sentiment" class="space-y-8 hidden">
+      <div class="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-8">
+        <h2 class="text-2xl font-bold text-slate-100 mb-6">Developer Sentiment Distribution</h2>
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <canvas id="sentimentChart" width="300" height="300"></canvas>
+          </div>
+          <div class="space-y-4">
+            <div class="border-l-2 border-green-500 pl-4">
+              <div class="flex items-center justify-between mb-1">
+                <span class="font-semibold text-slate-100">Positive</span>
+                <span class="text-2xl font-bold text-green-500">24%</span>
+              </div>
+              <div class="text-sm text-slate-400">Praise for Nano Banana Pro, Batch API savings, Maps integration</div>
+            </div>
+            <div class="border-l-2 border-gray-500 pl-4">
+              <div class="flex items-center justify-between mb-1">
+                <span class="font-semibold text-slate-100">Neutral</span>
+                <span class="text-2xl font-bold text-gray-500">42%</span>
+              </div>
+              <div class="text-sm text-slate-400">Documentation shares, implementation questions, partnership news</div>
+            </div>
+            <div class="border-l-2 border-red-500 pl-4">
+              <div class="flex items-center justify-between mb-1">
+                <span class="font-semibold text-slate-100">Negative</span>
+                <span class="text-2xl font-bold text-red-500">34%</span>
+              </div>
+              <div class="text-sm text-slate-400">API key frustrations, 404/429 errors, CLI latency complaints</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Issues Tab -->
+    <div id="content-issues" class="space-y-8 hidden">
+      <div class="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-8">
+        <h2 class="text-2xl font-bold text-slate-100 mb-6">Recurring Issue Frequency</h2>
+        <canvas id="issuesChart" width="400" height="300"></canvas>
+      </div>
+
+      <div class="space-y-4">
+        <div class="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-6 hover:border-emerald-500/30 transition-colors">
+          <div class="flex items-start justify-between">
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-2">
+                <h3 class="text-lg font-semibold text-slate-100">Auth & Key "Exercise in Frustration"</h3>
+                <span class="px-2 py-1 rounded text-xs font-medium bg-red-500/20 text-red-400">critical</span>
+              </div>
+              <p class="text-slate-400 text-sm leading-relaxed">Developers struggle with 401 errors and the complex split between AI Studio keys and Vertex AI project configurations.</p>
+            </div>
+            <div class="text-right ml-6">
+              <div class="text-2xl font-bold text-emerald-400">12</div>
+              <div class="text-xs text-slate-500">reports</div>
+              <div class="text-xs text-slate-600 mt-1">2026-01-16</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-6 hover:border-emerald-500/30 transition-colors">
+          <div class="flex items-start justify-between">
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-2">
+                <h3 class="text-lg font-semibold text-slate-100">Silent Rate Limit/429 Purge</h3>
+                <span class="px-2 py-1 rounded text-xs font-medium bg-orange-500/20 text-orange-400">high</span>
+              </div>
+              <p class="text-slate-400 text-sm leading-relaxed">New accounts report being hit by "limit: 0" errors or 429s even after linking billing, described as a "free tier fiasco."</p>
+            </div>
+            <div class="text-right ml-6">
+              <div class="text-2xl font-bold text-emerald-400">9</div>
+              <div class="text-xs text-slate-500">reports</div>
+              <div class="text-xs text-slate-600 mt-1">2026-01-12</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-6 hover:border-emerald-500/30 transition-colors">
+          <div class="flex items-start justify-between">
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-2">
+                <h3 class="text-lg font-semibold text-slate-100">CLI Latency (7.36s Cold Start)</h3>
+                <span class="px-2 py-1 rounded text-xs font-medium bg-orange-500/20 text-orange-400">high</span>
+              </div>
+              <p class="text-slate-400 text-sm leading-relaxed">Users are comparing Gemini CLI's 7+ second startup time unfavorably against Claude (1.4s) and Copilot (1.0s).</p>
+            </div>
+            <div class="text-right ml-6">
+              <div class="text-2xl font-bold text-emerald-400">7</div>
+              <div class="text-xs text-slate-500">reports</div>
+              <div class="text-xs text-slate-600 mt-1">2026-01-15</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Insights Tab -->
+    <div id="content-insights" class="space-y-8 hidden">
+      <div class="bg-gradient-to-r from-red-500/10 to-orange-500/10 border border-red-500/30 rounded-xl p-8">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+            <span class="text-2xl">⚠️</span>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold text-slate-100 mb-3">Critical Blocker: Onboarding "Hidden" Failures</h2>
+            <p class="text-slate-300 leading-relaxed mb-4">
+              While the API's reasoning and multimodal capabilities (like Nano Banana Pro) are seen as superior, developers are being "bounced" at the front door. The data shows that even when a developer is willing to pay, they encounter 404 "Model Not Found" or 429 "Resource Exhausted" errors that are poorly explained in the documentation.
+            </p>
+            <div class="bg-slate-900/50 border border-slate-700 rounded-lg p-4">
+              <div class="text-sm font-semibold text-red-400 mb-2">Developer Perception:</div>
+              <div class="text-slate-400 italic">"Many developers perceive this as the API being 'broken' rather than a quota/billing synchronization issue, leading them to abandon the platform."</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/50 backdrop-blur border border-slate-800 rounded-xl p-8">
+        <h2 class="text-2xl font-bold text-slate-100 mb-6">Hidden Gems (Loved but Under-utilized)</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="p-6 bg-emerald-500/5 border border-emerald-500/20 rounded-lg">
+            <div class="text-3xl mb-3">📊</div>
+            <h3 class="font-semibold text-emerald-400 mb-2">Nano Banana Pro Text Rendering</h3>
+            <p class="text-sm text-slate-400">Gemini 3 Pro Image significantly better at rendering mathematical formulas and infographics than competitors.</p>
+          </div>
+          <div class="p-6 bg-blue-500/5 border border-blue-500/20 rounded-lg">
+            <div class="text-3xl mb-3">🗺️</div>
+            <h3 class="font-semibold text-blue-400 mb-2">Google Maps Grounding</h3>
+            <p class="text-sm text-slate-400">Developers of travel and real-time data apps cite the Maps API integration as the primary reason they chose Gemini over OpenAI.</p>
+          </div>
+          <div class="p-6 bg-purple-500/5 border border-purple-500/20 rounded-lg">
+            <div class="text-3xl mb-3">⚡</div>
+            <h3 class="font-semibold text-purple-400 mb-2">Vibe Code in AI Studio</h3>
+            <p class="text-sm text-slate-400">High engagement with the "Vibe Code" feature for rapid, free prototyping.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-500/30 rounded-xl p-8">
+        <h2 class="text-2xl font-bold text-slate-100 mb-4">Final Verdict</h2>
+        <p class="text-lg text-slate-300 leading-relaxed">
+          The Gemini API is <span class="text-emerald-400 font-semibold">technically winning</span> on niche multimodal utility, but is <span class="text-red-400 font-semibold">losing on Developer Experience</span> due to account/auth hurdles and terminal tool latency.
+        </p>
+        <div class="mt-6 p-4 bg-slate-900/50 border border-slate-700 rounded-lg">
+          <div class="text-sm font-semibold text-emerald-400 mb-1">Highest Priority Action:</div>
+          <div class="text-slate-300">Addressing the "Limit: 0" billing bug should be the immediate focus to prevent developer abandonment.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="border-t border-slate-800 bg-slate-900/50 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-6 py-8">
+      <div class="text-center text-slate-500 text-sm">
+        <p>Analysis based on 600+ developer interactions • Filtered to ~90 Gemini-specific data points</p>
+        <p class="mt-2">Methodology: Line-by-line audit excluding competitor mentions and general industry news</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Tab switching
+    function showTab(tabName) {
+      // Hide all content
+      document.querySelectorAll('[id^="content-"]').forEach(el => el.classList.add('hidden'));
+      // Remove active state from all tabs
+      document.querySelectorAll('[id^="tab-"]').forEach(el => {
+        el.classList.remove('border-emerald-500', 'text-emerald-400');
+        el.classList.add('border-transparent', 'text-slate-400');
+      });
+      // Show selected content
+      document.getElementById('content-' + tabName).classList.remove('hidden');
+      // Add active state to selected tab
+      const activeTab = document.getElementById('tab-' + tabName);
+      activeTab.classList.add('border-emerald-500', 'text-emerald-400');
+      activeTab.classList.remove('border-transparent', 'text-slate-400');
+      
+      // Initialize charts when tabs are shown
+      if (tabName === 'sentiment' && !window.sentimentChartInitialized) {
+        initSentimentChart();
+        window.sentimentChartInitialized = true;
+      }
+      if (tabName === 'issues' && !window.issuesChartInitialized) {
+        initIssuesChart();
+        window.issuesChartInitialized = true;
+      }
+    }
+
+    // Sentiment Pie Chart
+    function initSentimentChart() {
+      const ctx = document.getElementById('sentimentChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Positive', 'Neutral', 'Negative'],
+          datasets: [{
+            data: [24, 42, 34],
+            backgroundColor: ['#10b981', '#6b7280', '#ef4444'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: false
+            }
+          }
+        }
+      });
+    }
+
+    // Issues Bar Chart
+    function initIssuesChart() {
+      const ctx = document.getElementById('issuesChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Auth & Key', 'Rate Limit', 'CLI Latency', 'Recitation', 'Session'],
+          datasets: [{
+            label: 'Reports',
+            data: [12, 9, 7, 6, 5],
+            backgroundColor: '#10b981',
+            borderRadius: 8
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          plugins: {
+            legend: {
+              display: false
+            }
+          },
+          scales: {
+            x: {
+              grid: {
+                color: '#334155'
+              },
+              ticks: {
+                color: '#94a3b8'
+              }
+            },
+            y: {
+              grid: {
+                display: false
+              },
+              ticks: {
+                color: '#94a3b8'
+              }
+            }
+          }
+        }
+      });
+    }
   </script>
 </body>
 </html>
